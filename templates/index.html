@@ -1,0 +1,20 @@
+<h1>Welcome to the Great Number Game!</h1>
+<p>I am thinking of a number between 1 and 100</p>
+<p>Take a guess!</p>
+
+{% if result == "high" %}
+<h1>Too High!</h1>
+{% elif result == "low" %}
+<h1>Too Low!</h1>
+{% endif %}
+
+<form action="/" method="POST">
+    {% if not result == "correct" %}
+    <input type="text" name="guess" id="guess">
+    <input type="submit" value="Guess"> 
+    {% else %}
+    <h1>CORRECT!</h1>
+    <input type="hidden" name="guess" id="guess" value="reset">
+    <input type="submit" value="Reset"> 
+    {% endif %}
+</form>
